@@ -24,9 +24,13 @@ import sys
 #print(sys.path)
 
 
-print ("Вы находитесь - ",os.getcwd())
-#print(os.getcwd())
-url_folder = os.getcwd()
+#print ("Вы находитесь - ",os.getcwd())
+#print("Sys.args", sys.argv)
+#print("OS abstrakt",os.path.dirname(sys.argv[0]))
+#print(os.getcwd())f
+from homeWrk.lesson5.easy import list_folder_external
+
+url_folder = os.path.dirname(sys.argv[0])
 
 def func_list():
 
@@ -49,7 +53,7 @@ def cd_to_folder():
         print("Вы не ввели неправильный путь к папке")
 
 def list_folder():
-
+    
     dir_arr = os.listdir(url_folder)
     print(dir_arr)
     #easy.export_list_folder(url_folder)
@@ -63,6 +67,7 @@ def del_folder():
         print("Удалено")
     except:
         print("Такой папки нет")
+
 def make_folder():
 
     dir_path1 = os.path.join(url_folder,dir_name)
