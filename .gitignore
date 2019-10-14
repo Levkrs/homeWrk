@@ -105,3 +105,4 @@ idea/
 # mypy
 .mypy_cache/
 
+lesson5/.DS_Store
