@@ -17,8 +17,9 @@
 # 4. Узнать ФИО родителей указанного ученика
 # 5. Получить список всех Учителей, преподающих в указанном классе
 
-student_list = []
-teacherlist = []
+student_list_arr = []
+teacher_list_arr = []
+class_list_arr = []
 
 
 classList = {}
@@ -26,48 +27,57 @@ classList = {}
 
 
 class Student:
-    def __init__(self, name, classN, f_parents, m_parents):
+    def __init__(self, name,f_parents, m_parents):
         self.nameSt = name
-        self.classSt = classN
         self.f_parentsSt = f_parents
         self.m_parentsSt = m_parents
-        if (classList.get(classN) == None):
-            classList[classN] = classN
-            print("Create Class N")
-        else: pass
-        st = [self.nameSt, self.classSt, self.f_parentsSt, self.m_parentsSt]
-        student_list.append(st)
+        st = [self.nameSt, self.f_parentsSt, self.m_parentsSt]
+        student_list_arr.append(st)
 
 
 
-
+class Class_list():
+    def __init__(self,name,student_list,teacher_list):
+        self.name = name
+        self.student_list = student_list
+        self.teacher_list = teacher_list
+        classList[self.name] = [self.student_list, self.teacher_list]
 
 
 class Teacher:
-    def __init__(self, name, classT, subj):
+    def __init__(self, name, subj):
         self.name = name
-        self.classT = classT
         self.subj = subj
-        th = [self.name, self.classT, self.subj]
-        
+        ther = [self.name,self.subj]
+        teacher_list_arr.append(ther)
 
 
 
 
 
-st1 = Student("Костиков Виктор Викторович", "6A", "Костиков Виктор Петрович", "Костикова Дарья Юрьевна")
-st2 = Student("Жучара М. И.", "6Б", "Жучара Иван Мизайлович ", "Жучара Регина Михайловна")
 
+
+
+
+st1 = Student("Костиков Виктор Викторович", "Костиков Виктор Петрович", "Костикова Дарья Юрьевна")
+st2 = Student("Жучара М. И.", "Жучара Иван Мизайлович ", "Жучара Регина Михайловна")
+th1 = Teacher("Татьяна Владимировна Мурашкина","Английский")
+
+class9a = Class_list("9A", student_list_arr, teacher_list_arr)
+
+stud = class9a
+# print(stud.student_list)
 print(classList)
-print(student_list)
+print("9A - ", classList.get("9A"))
+
+users = classList.get("9A")
+print(users[1])
 
 
-def print_class_n():
-    list_class = list(classList)
-    print(list_class)
+# print(classList)
+# print(student_list)
 
-def print_parent():
-    pass
+
 
 # print_class_n()
 #
